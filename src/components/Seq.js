@@ -90,6 +90,8 @@ const Sequencer = (props) => {
   // console.log("props.sample type is ", props.initial_pattern);
 
   function hello(type, array_type, sq) {
+    console.log(array_type);
+    console.log(sq);
     const loop = new Tone.Sequence(
       (time, col) => {
         // Update active column for animation
@@ -98,7 +100,7 @@ const Sequencer = (props) => {
         // Loop current pattern
         props.pattern.map((row, noteIndex) => {
           // If active
-          if (row[col]) {
+          if (Object.values(row)[0][col]) {
             // Play based on which row
             sq.triggerAttackRelease(array_type[noteIndex], "4n", time);
           }
@@ -180,28 +182,7 @@ const Sequencer = (props) => {
                       );
                     })}
                   </div>
-                  // console.log(value);
                 ))}
-                {/* {Object.values(row).map((value, x) => {
-
-
-                  console.log(value, x);
-                  return(
-
-                  {  value.map((val, x) => (
-                      <Square
-                        key={x}
-                        col={x}
-                        row={y}
-                        active={activeColumn === x}
-                        selected={value}
-                        onClick={() => updatePattern({ x, y, value })}
-                      />
-                    ))}
-                  )
-                    
-                  
-                })} */}
               </div>
             </div>
           ))}
