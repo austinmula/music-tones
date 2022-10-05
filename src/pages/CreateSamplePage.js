@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import * as Tone from "tone";
 import Sequencer from "../components/Seq";
+import { Initial_recording } from "../components/Resources";
 
 export default function CreateScreen({ match, history }) {
   const initial = [
@@ -13,16 +14,6 @@ export default function CreateScreen({ match, history }) {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   ];
 
-  // const initial = [
-  //   { B: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
-  //   { A: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
-  //   { G: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
-  //   { F: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
-  //   { E: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
-  //   { D: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
-  //   { C: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
-  // ];
-
   //states
   const [playing, setPlay] = useState(false);
   const [sample_name, setName] = useState("");
@@ -33,151 +24,8 @@ export default function CreateScreen({ match, history }) {
   //instrument types
   const types = ["piano", "french_horn", "guitar", "drums"];
 
-  const initial_recording = [
-    {
-      B: [
-        false,
-        true,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-      ],
-    },
-    {
-      A: [
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-      ],
-    },
-    {
-      G: [
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-      ],
-    },
-    {
-      F: [
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-      ],
-    },
-    {
-      E: [
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-      ],
-    },
-    {
-      D: [
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-      ],
-    },
-    {
-      C: [
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-      ],
-    },
-  ];
-
-  const [recording_data, setRecordingdata] = useState(initial_recording);
-  const [pattern, setPattern] = useState(initial);
+  const [recording_data, setRecordingdata] = useState(Initial_recording);
+  const [pattern, setPattern] = useState(Initial_recording);
 
   const playHandler = () => {
     setPlay(true);
@@ -189,10 +37,12 @@ export default function CreateScreen({ match, history }) {
     console.log("sumitting ", sample_type);
     console.log("sumitting ", sample_name);
 
+    // console.log(pattern);
+
     const url = `http://wmp.interaction.courses/api/v1/?apiKey=2izT6jiZ&mode=create&endpoint=samples&sampleType=${sample_type}&sampleName=${sample_name}`;
     fetch(url, {
       method: "POST",
-      body: JSON.stringify(initial_recording),
+      body: JSON.stringify(pattern),
     })
       .then(function (response) {
         alert("Success");
@@ -219,7 +69,7 @@ export default function CreateScreen({ match, history }) {
     var our_array = [];
     var that_bj = {};
     var new_value = true;
-    initial_recording.forEach((element, i) => {
+    Initial_recording.forEach((element, i) => {
       // element is object
 
       if (Object.keys(element)[0] === objectoo) {
@@ -306,7 +156,7 @@ export default function CreateScreen({ match, history }) {
             </div>
             <Sequencer
               sample_type={sample_type}
-              initial_pattern={initial}
+              initial_pattern={Initial_recording}
               pattern={pattern}
               setPattern={setPattern}
             />

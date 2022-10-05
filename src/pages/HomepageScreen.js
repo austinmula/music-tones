@@ -23,7 +23,7 @@ export default function HomepageScreen() {
       .then((json) => {
         const sample_array = json.samples;
         console.log(sample_array.length);
-        // console.log(sample_array);
+        console.log(sample_array);
         updateSamples(sample_array);
         // sample_array.forEach(element => {
         //     updateSamples(samples => [...samples,element])

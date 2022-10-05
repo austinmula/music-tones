@@ -39,16 +39,6 @@ const french_horns = ["F1", "F2", "F3", "F4", "F5", "F6", "F7"];
 const pianos = ["A1", "A2", "A3", "A4", "A5", "A6", "A7"];
 const guitars = ["B1", "B2", "B3", "B4", "B5", "B6", "B7"];
 
-const initialPattern = [
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-];
-
 // Tone.Transport.state
 
 const seq = new Tone.Sampler({
@@ -97,7 +87,7 @@ const Sequencer = (props) => {
 
   // console.log(pattern);
 
-  console.log("props.sample type is ", props.initial_pattern);
+  // console.log("props.sample type is ", props.initial_pattern);
 
   function hello(type, array_type, sq) {
     const loop = new Tone.Sequence(
@@ -144,8 +134,13 @@ const Sequencer = (props) => {
 
   // Update props.pattern by making a copy and inverting the value
   function updatePattern({ x, y, value }) {
+    console.log(x, y, value);
+    // console.log(Object.values(patternCopy[y])[0][x]);
     const patternCopy = [...props.pattern];
-    patternCopy[y][x] = +!value;
+    // setPatettern(())
+    // console.log(patternCopy);
+
+    Object.values(patternCopy[y])[0][x] = !Object.values(patternCopy[y])[0][x];
     props.setPattern(patternCopy);
   }
 
@@ -170,16 +165,43 @@ const Sequencer = (props) => {
                   cursor: "pointer",
                 }}
               >
-                {row.map((value, x) => (
-                  <Square
-                    key={x}
-                    col={x}
-                    row={y}
-                    active={activeColumn === x}
-                    selected={value}
-                    onClick={() => updatePattern({ x, y, value })}
-                  />
+                {Object.entries(row).map(([key, value]) => (
+                  <div className="flex-parent" key={key}>
+                    {value?.map((val, x) => {
+                      return (
+                        <Square
+                          key={x}
+                          col={x}
+                          row={y}
+                          active={activeColumn === x}
+                          selected={val}
+                          onClick={() => updatePattern({ x, y, val })}
+                        />
+                      );
+                    })}
+                  </div>
+                  // console.log(value);
                 ))}
+                {/* {Object.values(row).map((value, x) => {
+
+
+                  console.log(value, x);
+                  return(
+
+                  {  value.map((val, x) => (
+                      <Square
+                        key={x}
+                        col={x}
+                        row={y}
+                        active={activeColumn === x}
+                        selected={value}
+                        onClick={() => updatePattern({ x, y, value })}
+                      />
+                    ))}
+                  )
+                    
+                  
+                })} */}
               </div>
             </div>
           ))}

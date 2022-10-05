@@ -8,7 +8,8 @@
 }
 
 .seqBorder {
-  justify-self: center;
+  /* justify-self: center; */
+  width: 100%;
 }
 
 /* .seqBorder::after  {
@@ -47,12 +48,21 @@
   justify-content: center;
 }
 
-.square {
+.flex-parent {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 4.5em;
+  /* background-color: #000; */
+  width: 100%;
+}
+
+.square {
+  /* display: flex; */
+  /* align-items: center; */
+  /* flex: auto; */
+  /* justify-content: center; */
+  /* width: 4.5em; */
   height: 2em;
+  flex: 1 1 0px;
+  flex-basis: 100%;
   margin: 0.3em 0.1em;
   /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.034),
     0 1px 1px rgba(0, 0, 0, 0.048), 0 1px 1px rgba(0, 0, 0, 0.06),
