@@ -13,12 +13,16 @@
     --bgColor: #422142;
     --fgColor: #f0c4f0;
     --fgColorLighter: rgba(210, 169, 210, 0.5);
-    --headerTextColor: var(--fgColor);
+    --headerTextColor: #800080;
   }
 }
 
 /* Style the header with a grey background and some padding */
-.body-content {
+/* .body-content {
+  background: var(--bgColor);
+} */
+
+body {
   background: var(--bgColor);
 }
 
@@ -97,7 +101,8 @@ h3 {
 }
 
 .header p {
-  color: var(--headerTextColor);
+  color: #fff;
+  margin-right: 10px;
 }
 
 p {
@@ -114,7 +119,6 @@ p {
 }
 .one-of-three {
   border: solid var(--fgColor) 2px;
-
   margin: 4px;
   background-color: unset;
   padding: 6px;
@@ -125,7 +129,7 @@ p {
 #three3,
 #create {
   background-color: var(--fgColor);
-  color: white;
+  color: var(--headerTextColor);
 }
 
 #three1:hover,
@@ -133,17 +137,18 @@ p {
 #three3:hover,
 #create:hover {
   background-color: var(--purpleColorLighter);
-  color: white;
+  color: var(--headerTextColor);
 }
 
 #three1 a,
 #three2 a,
 #three3 a,
 #create a {
-  color: #ffffff;
+  color: var(--headerTextColor);
 }
 
-#one3 {
+#three3 {
+  background-color: var(--blueColorDarker);
 }
 
 :disabled {
@@ -249,13 +254,13 @@ h5 {
 }
 
 #checked-on h5 {
-  color: #ffffff;
+  color: var(--headerTextColor);
 }
 .checked-on {
   background-color: var(--fgColor);
 }
 .checked-on h5 {
-  color: #ffffff;
+  color: var(--headerTextColor);
 }
 
 #edit-cream {
@@ -272,7 +277,7 @@ h5 {
 
 .type-overall-container {
   margin: 0 40px 0 60px;
-
+  /* border: none; */
   width: inherit;
 }
 

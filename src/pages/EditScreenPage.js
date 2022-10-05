@@ -1,8 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
-import Card from "../components/Card";
-import { Routes, Route, useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import * as Tone from "tone";
-import { Initial_recording } from "../components/Resources";
 import Sequencer from "../components/Seq";
 
 export default function EditpageScreen({ match, history }) {
@@ -28,25 +26,6 @@ export default function EditpageScreen({ match, history }) {
   const [checkeffectType, setCheckEffecttype] = useState(true);
 
   const sample_id = match.params.id;
-
-  // console.log("recording ddddd ", recording_data);
-  // const xy = [];
-  // recording_data.map((element, i) => {
-  //   var each_array = Object.values(element)[0];
-  //   console.log(each_array);
-
-  //   each_array.forEach((value, index) => {
-  //     if (value === true) {
-  //       each_array[index] = 1;
-  //     } else {
-  //       each_array[index] = 0;
-  //     }
-  //     // console.log(value)
-  //   });
-  //   console.log("each array is ", each_array);
-  //   xy.push(each_array);
-  // });
-  // console.log("x is );
 
   function createGist() {
     const url = `http://wmp.interaction.courses/api/v1/?apiKey=2izT6jiZ&mode=update&endpoint=samples&sampleType=${sample_type}&sampleName=${sample_name}&id=${sample_id}`;
@@ -76,29 +55,6 @@ export default function EditpageScreen({ match, history }) {
     //setSelectSpeaker(!playState ? speaker.speakerPlay : speaker.speakerStop)
   }
 
-  // const handleOnChange = (objectoo, indexoo) => {
-  //   var our_array = [];
-  //   var that_bj = {};
-  //   var new_value = true;
-  //   recording_data.forEach((element, i) => {
-  //     // element is object
-
-  //     if (Object.keys(element)[0] === objectoo) {
-  //       our_array = Object.values(element)[0];
-  //       that_bj = recording_data[i];
-
-  //       new_value = !our_array[indexoo];
-  //     }
-  //   });
-  //   our_array[indexoo] = new_value;
-
-  //   // var objIndex = recording_data.findIndex((obj => Object.keys(obj)[0]  === objectoo ));
-  //   console.log("record ", recording_data);
-  //   setRecordingdata(recording_data);
-  //   // sad(recording_data)
-  //   setCheckEffect(!checkeffect);
-  // };
-
   useEffect(() => {
     console.log("updating music sample");
   }, [checkeffect, play, sample_type, checkeffectType]);
@@ -113,14 +69,14 @@ export default function EditpageScreen({ match, history }) {
   //   });
   // });
 
-  for (let index = 0; index < keys_only.length; index++) {
-    const element = keys_only[index];
-    container.push({
-      time: 1 + index - 0.5,
-      note: element,
-      velocity: 0.9,
-    });
-  }
+  // for (let index = 0; index < keys_only.length; index++) {
+  //   const element = keys_only[index];
+  //   container.push({
+  //     time: 1 + index - 0.5,
+  //     note: element,
+  //     velocity: 0.9,
+  //   });
+  // }
 
   const sampler = new Tone.Sampler({
     urls: {
@@ -153,10 +109,9 @@ export default function EditpageScreen({ match, history }) {
   };
 
   const toggle = useCallback(() => {
+    Tone.start();
     Tone.Transport.toggle();
     setCheckEffect(!checkeffect);
-
-    Tone.start();
   }, []);
 
   return (

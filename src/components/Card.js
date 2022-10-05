@@ -57,8 +57,8 @@ function Card(props) {
             Share{" "}
           </Link>
         </button>
-        <button className="one-of-three" onClick={playHandler} id="two1">
-          {playing ? "Stop Previewing" : "Preview"}
+        <button className="one-of-three" id="one1" onClick={playHandler}>
+          <>{playing ? "Stop Previewing" : "Preview"}</>
         </button>
         <button className="one-of-three" id="three1">
           <Link
