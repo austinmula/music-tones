@@ -1,0 +1,486 @@
+:root {
+  --purpleColorLighter: #a42de8;
+  --blueColorLighter: #318aff;
+  --blueColorDarker: #2d3de8;
+  --bgColor: #ffffff;
+  --fgColor: #800080;
+  --fgColorLighter: rgba(128, 0, 128, 0.5);
+  --headerTextColor: #ffffff;
+  --bgColordark: #422142;
+  --fgColordark: #f0c4f0;
+  --fgColorLighterdark: rgba(210, 169, 210, 0.5);
+  --headerTextColordark: var(--fgColor);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --bgColor: #422142;
+    --fgColor: #f0c4f0;
+    --fgColorLighter: rgba(210, 169, 210, 0.5);
+    --headerTextColor: var(--fgColor);
+  }
+}
+
+/* Style the header with a grey background and some padding */
+.header {
+  font-family: "Alfa Slab One", cursive;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  background-image: linear-gradient(
+    var(--purpleColorLighter),
+    var(--blueColorDarker)
+  );
+  /* background-color: var(--blueColorDarker); */
+  color: var(--headerTextColor);
+  z-index: 1;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a.logo .logo {
+  width: 150px;
+}
+
+/* Style the active/current link*/
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
+
+body {
+  font-family: "Alfa Slab One", cursive;
+}
+
+.body-content {
+  position: relative;
+  top: 40px;
+  padding-top: 10px;
+}
+
+main {
+  min-height: 100vh;
+  height: 100%;
+}
+
+#dark main {
+  background-color: var(--bgColordark);
+}
+
+#light main {
+  background-color: var(--bgColor);
+}
+
+body {
+  font-family: cursive;
+  margin: 0;
+}
+
+.major-container {
+  width: inherit;
+}
+
+#dark a {
+  color: var(--fgColordark);
+}
+
+#light a {
+  color: var(--fgColor);
+}
+
+#dark h1 {
+  color: var(--fgColordark);
+}
+
+#light h1 {
+  color: var(--fgColor);
+}
+
+a {
+  text-decoration: unset;
+  font-weight: 200;
+}
+h1 {
+  height: 100px;
+  margin-top: 30px;
+  margin-left: 40px;
+  /* color: var(--fgColor); */
+  font-style: bold;
+}
+
+#light h3 {
+  color: var(--fgColor);
+}
+#dark h3 {
+  color: var(--fgColordark);
+}
+
+.container-cont {
+  margin: 0 40px 40px 40px;
+
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  max-height: 80px;
+}
+
+#light .container-cont {
+  border: solid var(--fgColor) 2px;
+  border-bottom: solid 4px var(--fgColor);
+}
+#dark .container-cont {
+  border: solid var(--fgColordark) 2px;
+  border-bottom: solid 4px var(--fgColordark);
+}
+
+.right-items {
+  height: 80px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+#light .header p {
+  color: var(--headerTextColor);
+}
+
+#dark .header p {
+  color: var(--headerTextColordark);
+}
+
+p {
+  font-family: Calibri;
+  color: var(--fgColor);
+}
+
+#create {
+  position: relative;
+  float: right;
+}
+.left-items {
+  width: 70%;
+}
+.one-of-three {
+  border: solid var(--fgColor) 2px;
+
+  margin: 4px;
+  background-color: unset;
+  padding: 6px;
+}
+
+#three1,
+#three2,
+#three3,
+#create {
+  background-color: var(--fgColor);
+  color: white;
+}
+
+#three1:hover,
+#three2:hover,
+#three3:hover,
+#create:hover {
+  background-color: var(--purpleColorLighter);
+  color: white;
+}
+
+#three1 a,
+#three2 a,
+#three3 a,
+#create a {
+  color: #ffffff;
+}
+
+#one3 {
+}
+
+:disabled {
+  color: rgba(210, 169, 210, 0.5);
+}
+
+tr {
+  border: 2px black;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+:root {
+  --purpleColorLighter: #a42de8;
+  --blueColorLighter: #318aff;
+  --blueColorDarker: #2d3de8;
+  --bgColor: #ffffff;
+  --fgColor: #800080;
+  --fgColorLighter: rgba(128, 0, 128, 0.5);
+  --headerTextColor: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bgColor: #422142;
+    --fgColor: #f0c4f0;
+    --fgColorLighter: rgba(210, 169, 210, 0.5);
+    --headerTextColor: var(--fgColor);
+  }
+}
+
+@media (max-width: 500pt) {
+  .right-items {
+    margin-right: 10px;
+  }
+}
+
+body {
+  font-family: cursive;
+}
+
+a {
+  text-decoration: unset;
+  color: var(--fgColor);
+  font-weight: 200;
+}
+.major-container {
+  width: inherit;
+  position: relative;
+}
+.below-header {
+  max-height: 80px;
+}
+h1 {
+  height: 100px;
+  margin-top: 30px;
+  margin-left: 40px;
+  color: var(--fgColor);
+  font-style: bold;
+}
+h3 {
+  color: var(--fgColor);
+}
+.container-cont {
+  margin: 0 40px 40px 40px;
+  border: solid var(--fgColor) 2px;
+  border-bottom: solid 4px var(--fgColor);
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  max-height: 80px;
+  display: flex;
+}
+h5 {
+  color: var(--fgColor);
+}
+.right-items {
+  height: 80px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  flex: 30%;
+}
+.left-items {
+  padding: 10px;
+  flex: 70%;
+}
+
+p {
+  font-family: Calibri;
+  color: var(--fgColor);
+}
+
+.one-of-three {
+  border: solid var(--fgColor) 2px;
+  flex: 10%;
+  left: 10px;
+  margin: 4px;
+  background-color: unset;
+  padding: 6px;
+}
+
+#three1,
+#three2,
+#three3,
+#create {
+  background-color: var(--fgColor);
+}
+#three1 a,
+#three2 a,
+#three3 a,
+#create a {
+  color: #ffffff;
+}
+
+:disabled {
+  border: solid rgba(210, 169, 210, 0.5);
+  color: rgba(210, 169, 210, 0.5);
+}
+
+#bottom-cont {
+  border: solid rgba(226, 132, 226, 0.918) 2px;
+  border-bottom: solid 4px rgba(243, 130, 243, 0.89);
+  display: unset;
+  display: block;
+  text-align: center;
+}
+
+.flex-cont {
+  height: inherit;
+  position: relative;
+  float: center;
+}
+#create {
+  margin-top: 10px;
+}
+
+#share-page-right {
+  flex: 0;
+}
+
+.share-status {
+  margin: 0 40px 5px 40px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  display: flex;
+  position: relative;
+
+  flex: 100%;
+}
+#text-container {
+  height: inherit;
+  flex: 50%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin-left: 1%;
+}
+#status-sub-cont {
+  height: unset;
+  height: inherit;
+
+  flex: unset;
+  flex: 50%;
+}
+.shared {
+  height: 40%;
+  border: solid var(--fgColor) 2px;
+  border-bottom: solid 4px #800080;
+  display: flex;
+  flex: 10%;
+  left: 10px;
+  padding: 6px;
+  align-items: center;
+  text-align: center;
+}
+
+#checked-on {
+  background-color: var(--fgColor);
+}
+
+#checked-on h5 {
+  color: #ffffff;
+}
+.checked-on {
+  background-color: var(--fgColor);
+}
+.checked-on h5 {
+  color: #ffffff;
+}
+
+#edit-cream {
+  padding: 6px 2%;
+  border-radius: 20px;
+}
+
+#edit-cream-input {
+  padding: 6px 2%;
+  background-color: #a32de849;
+  border-radius: 20px;
+  width: 95%;
+}
+
+.type-overall-container {
+  margin: 0 40px 0 60px;
+
+  width: inherit;
+}
+
+.row {
+  max-height: 35px !important;
+  display: flex;
+  width: inherit;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+#column2,
+#column3,
+#column4,
+#column5 {
+  flex: 20%;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  border-left: solid var(--fgColor) 1px;
+}
+
+.type-sub-cont {
+  border: solid var(--fgColor) 2px;
+  border-left: solid var(--fgColor) 1px;
+  border-right: solid var(--fgColor) 1px;
+  height: 30px;
+  display: flex;
+  width: inherit;
+  align-items: center;
+  text-align: center;
+  border-bottom: solid 4px var(--fgColor);
+  flex: 80%;
+}
+
+#column1 {
+  margin-right: 20px;
+}
+
+/* button{
+      
+      cursor: pointer;
+  } */
