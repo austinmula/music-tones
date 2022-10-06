@@ -120,6 +120,7 @@ export default function EditpageScreen({ match, history }) {
         <h1>Samples you've created</h1>
       </div>
 
+      {/* COntainer form */}
       <div className="container-cont">
         <div className="left-items">
           <input
@@ -148,7 +149,9 @@ export default function EditpageScreen({ match, history }) {
           </button>
         </div>
       </div>
+      {/* end container form */}
 
+      {/* Sequencer container */}
       <div className="type-overall-container">
         <div className="type">
           <div className="row" id="row-one">

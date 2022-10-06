@@ -146,15 +146,12 @@ const Sequencer = (props) => {
     props.setPattern(patternCopy);
   }
 
-  useEffect(
-    () => {
-      console.log("sample type changed");
-    },
-    [] //pattern  // Retrigger when pattern changes
-  );
+  useEffect(() => {
+    console.log("sample type changed");
+  }, []);
 
   return (
-    <div>
+    <>
       <div className="backseq">
         <div className="seqBorder">
           {props.pattern?.map((row, y) => (
@@ -167,6 +164,9 @@ const Sequencer = (props) => {
                   cursor: "pointer",
                 }}
               >
+                <div className="label">
+                  <h5>{Object.keys(row)}</h5>
+                </div>
                 {Object.entries(row).map(([key, value]) => (
                   <div className="flex-parent" key={key}>
                     {value?.map((val, x) => {
@@ -188,7 +188,7 @@ const Sequencer = (props) => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

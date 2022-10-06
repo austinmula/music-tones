@@ -148,6 +148,7 @@ function Card(props) {
     // playingNow = JSON.parse(playingNow);
     // console.log(playingNow);
     toggle();
+    play((prev) => !prev);
     switch (props.sample_details.type) {
       case "drums":
         hello("drums", drums, seq);
